@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.swing.Timer;
 
-import event.PluginListener;
+import model.event.PluginListener;
 
 
 public class PluginFinder implements ActionListener {
