@@ -6,23 +6,26 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
 
-public class PluginFrame extends JFrame{
+public class PluginFrame extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected JMenu menu;
 	protected JPanel mainPanel;
-	
-	public PluginFrame(String titre){
+
+	public PluginFrame(String titre) {
 		super(titre);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setPreferredSize(new Dimension(800,600)); 
+		setPreferredSize(new Dimension(800, 600));
 		JPanel a = new MainPanel(this);
-        setContentPane(a);
-        pack();
-        setLocationRelativeTo(null);
-        setVisible(true);
+		setContentPane(a);
+		pack();
+		setLocationRelativeTo(null);
+		setVisible(true);
 	}
-	
-	
-	public static void main(String args []){
-			PluginFrame f = new PluginFrame("Teeeeeeeeest");
+
+	public static void main(String args[]) {
+		new PluginFrame("Teeeeeeeeest");
 	}
 }
