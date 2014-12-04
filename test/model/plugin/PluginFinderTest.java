@@ -1,7 +1,8 @@
 package model.plugin;
 
-import java.awt.event.ActionEvent;
-import java.io.File;
+import static org.junit.Assert.*;
+
+import java.io.*; 
 
 import model.event.PluginListenerTest;
 
@@ -15,8 +16,27 @@ public class PluginFinderTest {
 		PluginFinder finder = new PluginFinder(new File("plugins"));
 		PluginListenerTest finderTest= new PluginListenerTest();
 		finder.addListener(finderTest);
-		ActionEvent event= new ActionEvent(source, id, command);
-		finder.actionPerformed(event);
+		//on teste si les fichier sont ajouter
+		File source = new File("pluginsTest/Pluginmove.class");
+		File destination = new File("plugins/Pluginmove.class");
+		source.renameTo(destination);
+		// on attend 1 sec pour être sûr que le fichier est ajouter
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			fail();
+		}
+		assertTrue(finderTest.haveAdded());
+		assertFalse(finderTest.haveRemove());
+		destination.renameTo(source);
+		// on attend 1 sec pour être sûr que le fichier est ajouter
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			fail();
+		}
+		assertTrue(finderTest.haveRemove());
+		
 	}
 
 }
