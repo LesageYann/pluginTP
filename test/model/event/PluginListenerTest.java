@@ -16,7 +16,7 @@ public class PluginListenerTest implements PluginListener{
 	}
 	
 	public void pluginRemoved(File f) {
-		this.removed=false;
+		this.removed=true;
 	}
 	
 	public boolean haveRemove(){

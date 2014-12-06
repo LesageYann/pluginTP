@@ -1,8 +1,8 @@
-package plugins;
+package pluginsTest;
 
-import plugin.Plugin;
+import model.plugin.Plugin;
 
-public class PluginTest implements Plugin {
+public class Pluginmove implements Plugin {
 
 
 	@Override
@@ -12,7 +12,7 @@ public class PluginTest implements Plugin {
 
 	@Override
 	public String getLabel() {
-		return "plugin test label";
+		return "plugin test label"; 
 	}
 
 }

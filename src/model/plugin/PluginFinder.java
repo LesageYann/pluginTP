@@ -18,10 +18,13 @@ public class PluginFinder implements ActionListener {
 	protected Timer timer;
 	protected List<PluginListener> listeners= new ArrayList<PluginListener>();
 	protected List<File> knowsFiles = new ArrayList<File>();
+	protected int ctp;
 	
 	public PluginFinder(File dir){
 		this.dir= dir;
+		ctp =0;
 		this.timer = new Timer(1000, this);
+		
 	}
 
 	public List<File> listPluginClassFiles(){
@@ -47,6 +50,7 @@ public class PluginFinder implements ActionListener {
 			}
 		}
 		knowsFiles = allFiles;
+		System.out.println(ctp++);
 	}
 	
 	public void addListener(PluginListener plugin){
@@ -55,5 +59,13 @@ public class PluginFinder implements ActionListener {
 	
 	public void removeListener(PluginListener plugin){
 		this.listeners.remove(plugin);
+	}
+	
+	public void start(){
+		this.timer.start();
+	}
+	
+	public void stop(){
+		this.timer.stop();
 	}
 }
