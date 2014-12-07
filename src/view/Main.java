@@ -11,7 +11,6 @@ public class Main {
 		File dir=new File("bin/plugins");
 		PluginFinder finder = new PluginFinder(dir);
 		PluginFrame f=new PluginFrame(finder, "OP plugins here !");
-		System.out.println(f.mainPanel.getText());
 		finder.addListener(new PluginViewUpdater(f));
 		finder.addListener(new PluginLogger());
 		finder.start();

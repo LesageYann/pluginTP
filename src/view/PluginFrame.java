@@ -49,7 +49,6 @@ public class PluginFrame extends JFrame {
 
 	public void setCurrentPlugin(File item) throws ClassNotFoundException,
 			InstantiationException, IllegalAccessException {
-		System.out.println("Selection de plugin : "+ item.getName());
 		String path = "plugins." + item.getName().replaceAll("\\.class$", "");
 		Class<?> theClass = Class.forName(path);
 		this.currentPlugin = (Plugin) theClass.newInstance();
