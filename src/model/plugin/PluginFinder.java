@@ -35,7 +35,7 @@ public class PluginFinder implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		List<File> allFiles = this.listPluginClassFiles();
 		for (File f : allFiles) {
-			if (this.knowsFiles.contains(f)
+			if (!this.knowsFiles.contains(f)
 					&& this.filter.accept(dir, f.getName())) {
 				for (PluginListener p : listeners) {
 					p.pluginAdded(f);
@@ -44,7 +44,7 @@ public class PluginFinder implements ActionListener {
 			}
 		}
 		for (File f : knowsFiles) {
-			if (allFiles.contains(f) && this.filter.accept(dir, f.getName())) {
+			if (!allFiles.contains(f) && this.filter.accept(dir, f.getName())) {
 				for (PluginListener p : listeners) {
 					p.pluginRemoved(f);
 				}

@@ -2,6 +2,7 @@ package view;
 
 import java.io.File;
 
+import model.event.PluginLogger;
 import model.event.PluginViewUpdater;
 import model.plugin.PluginFinder;
 
@@ -12,6 +13,7 @@ public class Main {
 		PluginFrame f=new PluginFrame(finder, "OP plugins here !");
 		System.out.println(f.mainPanel.getText());
 		finder.addListener(new PluginViewUpdater(f));
+		finder.addListener(new PluginLogger());
 		finder.start();
 	}
 }

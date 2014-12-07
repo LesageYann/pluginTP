@@ -31,9 +31,9 @@ public class PluginsPanel extends JPanel {
 
 	@Override
 	public void update(Graphics arg0) {
-		this.plugins.removeAll();
+		this.plugins.removeAllItems();
 		for (File p : this.frame.getModel().listPluginClassFiles())
-			this.plugins.addItem(p);
+				this.plugins.addItem(p);
 		try {
 			this.frame.setCurrentPlugin((File) plugins.getSelectedItem());
 		} catch (ClassNotFoundException | InstantiationException
