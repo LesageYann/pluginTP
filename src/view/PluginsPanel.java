@@ -22,6 +22,7 @@ public class PluginsPanel extends JPanel {
 		super();
 		this.frame = frame;
 		this.plugins = new JComboBox<File>();
+		this.plugins.addItemListener(new ItemChangeListener(frame));
 		this.update(null);
 		this.apply = new JButton("Apply");
 		this.apply.addActionListener(new ApplyPluginListener(this.frame));

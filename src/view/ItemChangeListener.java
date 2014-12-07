@@ -15,6 +15,7 @@ public class ItemChangeListener implements ItemListener {
 
 	@Override
 	public void itemStateChanged(ItemEvent event) {
+		System.out.println("Listener item : " + ((File) event.getItem()).getName());
 		if (event.getStateChange() == ItemEvent.SELECTED) {
 			File item = (File) event.getItem();
 			try {
