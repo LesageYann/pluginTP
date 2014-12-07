@@ -26,8 +26,8 @@ public class PluginFrame extends JFrame {
 		this.model = pf;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setPreferredSize(new Dimension(800, 600));
-		JPanel a = new MainPanel(this);
-		setContentPane(a);
+		mainPanel = new MainPanel(this);
+		setContentPane(mainPanel);
 		pack();
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -40,7 +40,6 @@ public class PluginFrame extends JFrame {
 	@Override
 	public void update(Graphics arg0) {
 		this.mainPanel.update(arg0);
-		super.update(arg0);
 	}
 
 	public void applyCurrentPlugin() {
@@ -55,4 +54,5 @@ public class PluginFrame extends JFrame {
 		Class<?> theClass = Class.forName(path);
 		this.currentPlugin = (Plugin) theClass.newInstance();
 	}
+	
 }

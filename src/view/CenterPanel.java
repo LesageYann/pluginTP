@@ -41,7 +41,6 @@ public class CenterPanel extends JPanel {
 	@Override
 	public void update(Graphics arg0) {
 		this.panelPlugins.update(arg0);
-		super.update(arg0);
 	}
 
 	public void setText(String s) {

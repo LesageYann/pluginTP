@@ -43,6 +43,5 @@ public class PluginsPanel extends JPanel {
 					JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
-		super.update(arg0);
 	}
 }

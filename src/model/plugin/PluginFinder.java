@@ -13,17 +13,19 @@ import model.event.PluginListener;
 
 public class PluginFinder implements ActionListener {
 	protected File dir;
-	protected PluginFilter filter = new PluginFilter();
+	protected PluginFilter filter;
 	protected Timer timer;
-	protected List<PluginListener> listeners = new ArrayList<PluginListener>();
-	protected List<File> knowsFiles = new ArrayList<File>();
+	protected List<PluginListener> listeners;
+	protected List<File> knowsFiles;
 	protected int ctp;
 
 	public PluginFinder(File dir) {
 		this.dir = dir;
 		ctp = 0;
-		this.timer = new Timer(1000, this);
-
+		this.timer = new Timer(5000, this);
+		filter = new PluginFilter();
+		listeners = new ArrayList<PluginListener>();
+		knowsFiles = new ArrayList<File>();
 	}
 
 	public List<File> listPluginClassFiles() {
@@ -51,6 +53,7 @@ public class PluginFinder implements ActionListener {
 		}
 		knowsFiles = allFiles;
 		System.out.println(ctp++);
+		System.out.println(knowsFiles);
 	}
 
 	public void addListener(PluginListener plugin) {
