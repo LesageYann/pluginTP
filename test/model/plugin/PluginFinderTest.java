@@ -17,7 +17,7 @@ import org.junit.Test;
 public class PluginFinderTest {
 
 	public void filecopy(String inName, String outName){
-		FileChannel in = null; // canal d'entrée
+		FileChannel in = null; // canal d'entrï¿½e
 		FileChannel out = null; // canal de sortie
 	 
 		try {

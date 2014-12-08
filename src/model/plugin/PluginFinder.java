@@ -20,7 +20,7 @@ public class PluginFinder implements ActionListener {
 
 	public PluginFinder(File dir) {
 		this.dir = dir;
-		this.timer = new Timer(5000, this);
+		this.timer = new Timer(1000, this);
 		filter = new PluginFilter();
 		listeners = new ArrayList<PluginListener>();
 		knowsFiles = new ArrayList<File>();

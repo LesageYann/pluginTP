@@ -19,8 +19,7 @@ public class ItemChangeListener implements ItemListener {
 			File item = (File) event.getItem();
 			try {
 				this.frame.setCurrentPlugin(item);
-			} catch (ClassNotFoundException | InstantiationException
-					| IllegalAccessException e) {
+			} catch (Exception e) {
 				JOptionPane.showMessageDialog(frame, "Error while selecting Plugin", "FATAL ERROR", JOptionPane.ERROR_MESSAGE);
 				e.printStackTrace();
 			}

@@ -6,7 +6,6 @@ import java.io.File;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
-import javax.swing.JPanel;
 
 import model.plugin.Plugin;
 import model.plugin.PluginFinder;

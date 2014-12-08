@@ -15,13 +15,13 @@ public class PluginsPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	protected JButton apply;
-	protected JComboBox<File> plugins;
+	protected JComboBox plugins;
 	protected PluginFrame frame;
 
 	public PluginsPanel(PluginFrame frame) {
 		super();
 		this.frame = frame;
-		this.plugins = new JComboBox<File>();
+		this.plugins = new JComboBox();
 		this.plugins.addItemListener(new ItemChangeListener(frame));
 		this.update(null);
 		this.apply = new JButton("Apply");
@@ -37,8 +37,7 @@ public class PluginsPanel extends JPanel {
 				this.plugins.addItem(p);
 		try {
 			this.frame.setCurrentPlugin((File) plugins.getSelectedItem());
-		} catch (ClassNotFoundException | InstantiationException
-				| IllegalAccessException e) {
+		} catch (Exception e) {
 			JOptionPane.showMessageDialog(frame,
 					"Error while selecting Plugin", "FATAL ERROR",
 					JOptionPane.ERROR_MESSAGE);
