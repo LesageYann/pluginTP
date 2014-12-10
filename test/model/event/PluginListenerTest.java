@@ -1,6 +1,6 @@
 package model.event;
 
-import java.io.File;
+import model.plugin.Plugin;
 
 public class PluginListenerTest implements PluginListener{
 	private boolean added;
@@ -11,11 +11,11 @@ public class PluginListenerTest implements PluginListener{
 		this.removed = false;
 	}
 	
-	public void pluginAdded(File f) {
+	public void pluginAdded(Plugin f) {
 		this.added=true;
 	}
 	
-	public void pluginRemoved(File f) {
+	public void pluginRemoved(Plugin f) {
 		this.removed=true;
 	}
 	

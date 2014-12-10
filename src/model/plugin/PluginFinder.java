@@ -35,18 +35,42 @@ public class PluginFinder implements ActionListener {
 		for (File f : allFiles) {
 			if (!this.knowsFiles.contains(f)
 					&& this.filter.accept(dir, f.getName())) {
-				for (PluginListener p : listeners) {
-					p.pluginAdded(f);
+				Plugin plugin;
+				try {
+					plugin = (Plugin) filter.getClass(f.getName())
+							.newInstance();
+					for (PluginListener p : listeners) {
+						p.pluginAdded(plugin);
+					}
+					this.knowsFiles.add(f);
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				this.knowsFiles.add(f);
+
 			}
 		}
 		for (File f : knowsFiles) {
 			if (!allFiles.contains(f) && this.filter.accept(dir, f.getName())) {
-				for (PluginListener p : listeners) {
-					p.pluginRemoved(f);
+				Plugin plugin;
+				try {
+					plugin = (Plugin) filter.getClass(f.getName())
+							.newInstance();
+					for (PluginListener p : listeners) {
+						p.pluginRemoved(plugin);
+					}
+					allFiles.remove(f);
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				this.knowsFiles.remove(f);
+
 			}
 		}
 		knowsFiles = allFiles;

@@ -5,8 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 
-import model.plugin.PluginFilter;
-
 import org.junit.Test;
 
 

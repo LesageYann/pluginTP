@@ -1,26 +1,23 @@
 package view;
 
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.io.File;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 
 import model.plugin.Plugin;
-import model.plugin.PluginFinder;
+import model.plugin.PluginModel;
 
 public class PluginFrame extends JFrame {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected PluginFinder model;
+	protected PluginModel model;
 	protected JMenu menu;
 	protected MainPanel mainPanel;
-	private Plugin currentPlugin;
 
-	public PluginFrame(PluginFinder pf, String titre) {
+	public PluginFrame(PluginModel pf, String titre) {
 		super(titre);
 		this.model = pf;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,25 +29,23 @@ public class PluginFrame extends JFrame {
 		setVisible(true);
 	}
 
-	public PluginFinder getModel() {
+	public PluginModel getModel() {
 		return this.model;
 	}
 
-	@Override
-	public void update(Graphics arg0) {
-		this.mainPanel.update(arg0);
+	public void pluginAdded(Plugin p) {
+		mainPanel.pluginAdded(p);
+		this.repaint();
 	}
-
+	
+	public void pluginRemoved(Plugin p) {
+		mainPanel.pluginRemoved(p);
+		this.repaint();
+	}
+	
 	public void applyCurrentPlugin() {
-		this.mainPanel.setText(this.currentPlugin.transform(this.mainPanel
+		this.mainPanel.setText(model.transform(this.mainPanel
 				.getText()));
 	}
 
-	public void setCurrentPlugin(File item) throws ClassNotFoundException,
-			InstantiationException, IllegalAccessException {
-		String path = "plugins." + item.getName().replaceAll("\\.class$", "");
-		Class<?> theClass = Class.forName(path);
-		this.currentPlugin = (Plugin) theClass.newInstance();
-	}
-	
 }

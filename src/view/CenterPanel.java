@@ -1,11 +1,11 @@
 package view;
 
-import java.awt.Graphics;
-
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import model.plugin.Plugin;
 
 public class CenterPanel extends JPanel {
 
@@ -36,13 +36,15 @@ public class CenterPanel extends JPanel {
 	public String getText(){
 		return this.text.getText();
 	}
-	
-	@Override
-	public void update(Graphics arg0) {
-		this.panelPlugins.update(arg0);
-	}
 
 	public void setText(String s) {
 		this.text.setText(s);
+	}
+
+	public void pluginAdded(Plugin p) {
+		this.panelPlugins.pluginAdded(p.getLabel());
+	}
+	public void pluginRemoved(Plugin p) {
+		this.panelPlugins.pluginRemoved(p.getLabel());
 	}
 }

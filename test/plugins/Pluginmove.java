@@ -1,4 +1,4 @@
-package pluginsTest;
+package plugins;
 
 import model.plugin.Plugin;
 

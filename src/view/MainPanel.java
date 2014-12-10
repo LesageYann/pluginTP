@@ -1,9 +1,9 @@
 package view;
 
-import java.awt.Graphics;
-
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+
+import model.plugin.Plugin;
 
 public class MainPanel extends JPanel {
 	/**
@@ -35,9 +35,11 @@ public class MainPanel extends JPanel {
 		this.center.setText(s);
 	}
 
-	@Override
-	public void update(Graphics arg0) {
-		this.center.update(arg0);
-		this.repaint();
+	public void pluginAdded(Plugin p) {
+		this.center.pluginAdded(p);
+	}
+	
+	public void pluginRemoved(Plugin p) {
+		this.center.pluginRemoved(p);
 	}
 }

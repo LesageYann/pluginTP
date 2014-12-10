@@ -1,17 +1,17 @@
 package model.event;
 
-import java.io.File;
+import model.plugin.Plugin;
 
 public class PluginLogger implements PluginListener {
 
 	@Override
-	public void pluginAdded(File f) {
-		System.out.println(" plugin added : "+f.getName());
+	public void pluginAdded(Plugin p) {
+		System.out.println(" plugin added : "+p.getLabel());
 	}
 
 	@Override
-	public void pluginRemoved(File f) {
-		System.out.println(" plugin removed : "+ f.getName());
+	public void pluginRemoved(Plugin p) {
+		System.out.println(" plugin removed : "+ p.getLabel());
 	}
 
 }

@@ -1,10 +1,10 @@
 package model.event;
 
-import java.io.File;
+import model.plugin.Plugin;
 
 public interface PluginListener {
 
-	public void pluginAdded(File f);
+	public void pluginAdded(Plugin p);
 
-	public void pluginRemoved(File f);
+	public void pluginRemoved(Plugin p);
 }
